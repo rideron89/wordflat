@@ -1,0 +1,96 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One);
+
+@import 'normalize-3.0.2.less';
+@import 'variables.less';
+@import 'global.less';
+@import 'card.less';
+
+@import 'form.less';
+@import 'sidebar.less';
+
+.entry-categories {
+    .badge {
+        background: @bg-green-light;
+        color: @bg-gray-dark;
+        text-decoration: none;
+
+        &:hover {
+            background: @bg-green-light-extra;
+            color: @bg-gray-dark;
+        }
+    }
+}
+
+.entry-meta {
+    color: @bg-gray-light;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.entry-title {
+    margin: 10px 0;
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.notification {
+    &.error {
+        .card {
+            background: @bg-red-dark;
+            box-shadow: 0px 0px 3px #555;
+        }
+    }
+
+    &.success {
+        .card {
+            background: @bg-green-medium;
+            box-shadow: 0px 0px 3px #555;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .card {
+        padding-right: 55px;
+        position: relative;
+    }
+
+    .exit {
+        cursor: pointer;
+        position: absolute 20px 20px auto auto;
+    }
+}
+
+.slidecard {
+    position: relative;
+
+    &:before {
+        background: @bg-orange;
+        content: '';
+        display: block;
+        position: absolute 0 0 0 100%;
+        transition: all @transition-fast ease;
+        z-index: 1;
+    }
+
+    &:hover {
+        &:before {
+            left: 0;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        position: relative;
+        z-index: 2;
+    }
+}

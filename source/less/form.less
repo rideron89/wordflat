@@ -1,0 +1,47 @@
+form {
+    padding: 0 20px 20px;
+
+    fieldset {
+        margin-top: 20px;
+        position: relative;
+
+        label {
+            color: #757575;
+            cursor: text;
+            font-weight: 400;
+            margin: 0;
+            position: absolute 20px 0 0 20px;
+        }
+
+        input {
+            border: 0;
+            border-radius: 2px;
+            color: #333;
+            padding: 20px;
+            width: 100%;
+
+            &:active,
+            &:focus {
+                outline: 0;
+            }
+
+            &.error {
+            }
+        }
+    }
+
+    p {
+        margin: 20px 0 0;
+        text-align: center;
+    }
+
+    .form-message {
+        border-radius: 2px;
+        display: none;
+        padding: 5px;
+
+        &.error-message {
+            background: @bg-red-dark;
+        }
+    }
+}

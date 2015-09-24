@@ -1,0 +1,17 @@
+{
+  "name": "rucksack-demo",
+  "version": "1.0.0",
+  "description": "Demo showing off Rucksack",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ron Rider <rideron89@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-rucksack": "^0.1.2"
+  }
+}

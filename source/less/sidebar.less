@@ -1,0 +1,41 @@
+.sidebar {
+    padding: 20px 0 0;
+
+    h2 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    p {
+        padding: 0 20px;
+    }
+
+    ul {
+        background: @bg-gray-medium;
+        border-top: 1px solid @bg-gray-dark-extra;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            transition: all @transition-fast ease;
+
+            &.active {
+                background: @bg-orange;
+            }
+
+            a {
+                color: @fg-white;
+                display: block;
+                padding: 20px 20px;
+
+                &:active,
+                &:focus,
+                &:hover {
+                    color: @fg-white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
