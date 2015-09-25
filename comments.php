@@ -16,67 +16,48 @@
  * return early without loading the comments.
  */
 if ( post_password_required() ) {
-	return;
+    return;
 }
+
+if ( is_user_logged_in() == false) {
+    return;
+}
+
+global $current_user;
+get_currentuserinfo();
 ?>
 
-<div id="comments" class="comments-area">
+<div class="row spacer"></div>
 
-	<?php // You can start editing here -- including this comment! ?>
+<div id="comments" class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="comments-form-area">
+            <?php
+            comment_form( array(
+                'comment_field' => '<fieldset><label for="comment">' . __('Enter your comment here.' ) . '</label><textarea id="comment" name="comment" rows="3" aria-required="true" required="required"></textarea></fieldset>',
+                'comment_notes_after' => '<p class="form-message error-message">' . __('Please fill out the comment box.') . '</p>',
+                'logged_in_as' => '',
+                'class_submit' => 'button-green button-small',
+                'title_reply' => __( 'Comments' ),
+                'label_submit' => __( 'Submit' )
+            ) );
+            ?>
+        </div>
 
-	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-				printf( // WPCS: XSS OK.
-					esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'wordflat' ) ),
-					number_format_i18n( get_comments_number() ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			?>
-		</h2>
+        <div class="row spacer"></div>
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'wordflat' ); ?></h2>
-			<div class="nav-links">
-
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'wordflat' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'wordflat' ) ); ?></div>
-
-			</div><!-- .nav-links -->
-		</nav><!-- #comment-nav-above -->
-		<?php endif; // Check for comment navigation. ?>
-
-		<ol class="comment-list">
-			<?php
-				wp_list_comments( array(
-					'style'      => 'ol',
-					'short_ping' => true,
-				) );
-			?>
-		</ol><!-- .comment-list -->
-
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'wordflat' ); ?></h2>
-			<div class="nav-links">
-
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'wordflat' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'wordflat' ) ); ?></div>
-
-			</div><!-- .nav-links -->
-		</nav><!-- #comment-nav-below -->
-		<?php endif; // Check for comment navigation. ?>
-
-	<?php endif; // Check for have_comments(). ?>
-
-	<?php
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'wordflat' ); ?></p>
-	<?php endif; ?>
-
-	<?php comment_form(); ?>
-
-</div><!-- #comments -->
+        <?php if ( have_comments() == false): ?>
+            <p class="no-comments"><?php esc_html_e( 'No comments have been made.', 'wordflat' ); ?></p>
+        <?php else: ?>
+            <div class="comments-area">
+                <?php
+                wp_list_comments( array(
+                    'avatar_size' => 64,
+                    'style' => 'div',
+                    'short_ping' => true
+                ) );
+                ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>

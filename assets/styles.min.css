@@ -249,6 +249,10 @@ fieldset {
   margin: 0;
   padding: 0;
 }
+.button-small {
+  padding: 12px;
+  width: 125px;
+}
 .button-green {
   background: #3fcb77;
   font-weight: 700;
@@ -268,6 +272,9 @@ fieldset {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+.comment-form {
+  padding: 0;
+}
 .site-title {
   font-family: 'Fredoka One';
   letter-spacing: 0.025em;
@@ -286,14 +293,25 @@ fieldset {
   overflow: hidden;
   padding: 20px;
 }
+.comments-area article {
+  border: 1px solid #000;
+  border-radius: 2px;
+  padding: 20px;
+}
+.comments-area .avatar {
+  border-radius: 100%;
+}
 form {
   padding: 0 20px 20px;
+}
+form#login-form p {
+  text-align: center;
 }
 form fieldset {
   margin-top: 20px;
   position: relative;
 }
-form fieldset label {
+form label {
   color: #757575;
   cursor: text;
   font-weight: 400;
@@ -304,20 +322,32 @@ form fieldset label {
   bottom: 0;
   left: 20px;
 }
-form fieldset input {
+form input {
+  background: #C5C5C5;
   border: 0;
   border-radius: 2px;
-  color: #333;
+  color: #151515;
   padding: 20px;
   width: 100%;
 }
-form fieldset input:active,
-form fieldset input:focus {
+form input:active,
+form input:focus {
   outline: 0;
 }
 form p {
   margin: 20px 0 0;
-  text-align: center;
+}
+form textarea {
+  background: #C5C5C5;
+  border: 0;
+  border-radius: 2px;
+  color: #151515;
+  padding: 20px;
+  width: 100%;
+}
+form textarea:active,
+form textarea:focus {
+  outline: 0;
 }
 form .form-message {
   border-radius: 2px;
