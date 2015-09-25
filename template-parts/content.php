@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" class="card main-content">
 	<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ) ?>
-    <sup class="entry-meta">by <?php the_author() ?> on <?php the_date() ?> at <?php the_time() ?></sup>
+    <sup class="entry-meta">by <?php the_author_posts_link() ?> on <?= get_the_date() ?> at <?php the_time() ?></sup>
     <div class="entry-content"><?php the_content() ?></div>
     <div class="entry-categories">
         <?php if (get_the_tags()): ?>
