@@ -72,7 +72,7 @@ h1 {
 }
 mark {
   background: #ff0;
-  color: #000000;
+  color: #000;
 }
 small {
   font-size: 80%;
@@ -185,7 +185,7 @@ table {
 html,
 body {
   background: #87878F;
-  color: #d7d6dc;
+  color: #D7D6DC;
   font-family: 'Open Sans', 'Arial', sans-serif;
   font-size: 16px;
   font-size: calc(12px + 4 * ( (100vw - 420px) / 860));
@@ -209,11 +209,11 @@ a {
 a:active,
 a:link,
 a:visited {
-  color: #3fcb77;
+  color: #3FCB77;
   text-decoration: underline;
 }
 a:hover {
-  color: #5cdc8f;
+  color: #5CDC8F;
 }
 h1 {
   font-size: 36px;
@@ -254,13 +254,13 @@ fieldset {
   width: 125px;
 }
 .button-green {
-  background: #3fcb77;
+  background: #3FCB77;
   font-weight: 700;
   -webkit-transition: all 0.1s ease;
           transition: all 0.1s ease;
 }
 .button-green:hover {
-  background: #5cdc8f;
+  background: #5CDC8F;
 }
 .icon:after {
   font-family: 'icomoon';
@@ -274,17 +274,6 @@ fieldset {
 }
 .comment-form {
   padding: 0;
-}
-.site-title {
-  font-family: 'Fredoka One';
-  letter-spacing: 0.025em;
-  font-size: 100px;
-  margin: 25px 0;
-  text-shadow: 3px 5px 0px #6D6D6D;
-}
-.site-title a {
-  color: inherit;
-  text-decoration: none;
 }
 .card {
   background: #292933;
@@ -300,6 +289,39 @@ fieldset {
 }
 .comments-area .avatar {
   border-radius: 100%;
+}
+.header {
+  position: relative;
+}
+.header .header-bg-image {
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  opacity: 0.1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.header .site-description {
+  position: relative;
+  z-index: 2;
+}
+.header .site-title {
+  position: relative;
+  z-index: 2;
+}
+.header .site-title {
+  font-family: 'Fredoka One';
+  letter-spacing: 0.025em;
+  font-size: 100px;
+  margin: 25px 0;
+  text-shadow: 3px 5px 0px #6D6D6D;
+}
+.header .site-title a {
+  color: inherit;
+  text-decoration: none;
 }
 form {
   padding: 0 20px 20px;
@@ -355,7 +377,7 @@ form .form-message {
   padding: 5px;
 }
 form .form-message.error-message {
-  background: #c71813;
+  background: #C71813;
 }
 .sidebar {
   padding: 20px 0 0;
@@ -368,7 +390,7 @@ form .form-message.error-message {
   padding: 0 20px;
 }
 .sidebar ul {
-  background: #2c2d31;
+  background: #2C2D31;
   border-top: 1px solid #232020;
   list-style-type: none;
   margin: 0;
@@ -379,30 +401,30 @@ form .form-message.error-message {
           transition: all 0.1s ease;
 }
 .sidebar ul li.active {
-  background: #cd552b;
+  background: #CD552B;
 }
 .sidebar ul li a {
-  color: #d7d6dc;
+  color: #D7D6DC;
   display: block;
   padding: 20px 20px;
 }
 .sidebar ul li a:active,
 .sidebar ul li a:focus,
 .sidebar ul li a:hover {
-  color: #d7d6dc;
+  color: #D7D6DC;
   text-decoration: none;
 }
 .entry-categories .badge {
-  background: #3fcb77;
+  background: #3FCB77;
   color: #292933;
   text-decoration: none;
 }
 .entry-categories .badge:hover {
-  background: #5cdc8f;
+  background: #5CDC8F;
   color: #292933;
 }
 .entry-meta {
-  color: #7f8188;
+  color: #7F8188;
   display: inline-block;
   margin-bottom: 15px;
 }
@@ -416,11 +438,11 @@ form .form-message.error-message {
   text-decoration: underline;
 }
 .notification.error .card {
-  background: #c71813;
+  background: #C71813;
   box-shadow: 0px 0px 3px #555;
 }
 .notification.success .card {
-  background: #368d3d;
+  background: #368D3D;
   box-shadow: 0px 0px 3px #555;
 }
 .notification p {
@@ -442,7 +464,7 @@ form .form-message.error-message {
   position: relative;
 }
 .slidecard:before {
-  background: #cd552b;
+  background: #CD552B;
   content: '';
   display: block;
   position: absolute;

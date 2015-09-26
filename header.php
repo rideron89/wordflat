@@ -29,6 +29,7 @@
                 <div class="card header">
                     <h1 class="site-title"><a href="<?= esc_url( home_url( '/' ) ) ?>"><?php bloginfo( 'name' ); ?></a></h1>
                     <p class="site-description"><?php bloginfo( 'description' ); ?></p>
+                    <div class="header-bg-image" style="background-image: url(<?= get_header_image() ?>);"></div>
                 </div>
             </div>
         </div>
