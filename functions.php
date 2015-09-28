@@ -45,7 +45,7 @@ function wordflat_setup() {
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
         'primary' => esc_html__( 'Primary Menu', 'wordflat' ),
-    ) );
+        ) );
 
     /*
      * Switch default core markup for search form, comment form, and comments
@@ -57,7 +57,7 @@ function wordflat_setup() {
         'comment-list',
         'gallery',
         'caption',
-    ) );
+        ) );
 
     /*
      * Enable support for Post Formats.
@@ -69,13 +69,13 @@ function wordflat_setup() {
         'video',
         'quote',
         'link',
-    ) );
+        ) );
 
     // Set up the WordPress core custom background feature.
     add_theme_support( 'custom-background', apply_filters( 'wordflat_custom_background_args', array(
         'default-color' => 'ffffff',
         'default-image' => '',
-    ) ) );
+        ) ) );
 }
 endif; // wordflat_setup
 add_action( 'after_setup_theme', 'wordflat_setup' );
@@ -106,7 +106,7 @@ function wordflat_widgets_init() {
         'after_widget'  => '</aside>',
         'before_title'  => '<h2 class="widget-title">',
         'after_title'   => '</h2>',
-    ) );
+        ) );
 }
 add_action( 'widgets_init', 'wordflat_widgets_init' );
 
@@ -133,6 +133,66 @@ function wordflat_scripts() {
 add_action( 'wp_enqueue_scripts', 'wordflat_scripts' );
 
 /**
+ * Adds custom classes to the array of body classes.
+ *
+ * @param array $classes Classes for the body element.
+ * @return array
+ */
+function wordflat_body_classes( $classes ) {
+    // Adds a class of group-blog to blogs with more than 1 published author.
+    if ( is_multi_author() ) {
+        $classes[] = 'group-blog';
+    }
+
+    return $classes;
+}
+add_filter( 'body_class', 'wordflat_body_classes' );
+
+
+/**
+ * Add postMessage support for site title and description for the Theme Customizer.
+ *
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+ */
+function wordflat_customize_register( $wp_customize ) {
+    $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+    $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+    $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+}
+add_action( 'customize_register', 'wordflat_customize_register' );
+
+/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+function wordflat_customize_preview_js() {
+    wp_enqueue_script( 'wordflat_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+}
+add_action( 'customize_preview_init', 'wordflat_customize_preview_js' );
+
+/**
+ * Add theme support for Infinite Scroll.
+ * See: https://jetpack.me/support/infinite-scroll/
+ */
+function wordflat_jetpack_setup() {
+    add_theme_support( 'infinite-scroll', array(
+        'container' => 'main',
+        'render'    => 'wordflat_infinite_scroll_render',
+        'footer'    => 'page',
+    ) );
+} // end function wordflat_jetpack_setup
+add_action( 'after_setup_theme', 'wordflat_jetpack_setup' );
+
+/**
+ * Custom render function for Infinite Scroll.
+ */
+function wordflat_infinite_scroll_render() {
+    while ( have_posts() ) {
+        the_post();
+        get_template_part( 'template-parts/content', get_post_format() );
+    }
+} // end function wordflat_infinite_scroll_render
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -141,18 +201,3 @@ require get_template_directory() . '/inc/custom-header.php';
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
