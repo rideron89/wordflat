@@ -72,7 +72,7 @@ h1 {
 }
 mark {
   background: #ff0;
-  color: #000;
+  color: #000000;
 }
 small {
   font-size: 80%;
@@ -185,7 +185,7 @@ table {
 html,
 body {
   background: #87878F;
-  color: #D7D6DC;
+  color: #d7d6dc;
   font-family: 'Open Sans', 'Arial', sans-serif;
   font-size: 16px;
   font-size: calc(12px + 4 * ( (100vw - 420px) / 860));
@@ -209,11 +209,11 @@ a {
 a:active,
 a:link,
 a:visited {
-  color: #3FCB77;
+  color: #3fcb77;
   text-decoration: underline;
 }
 a:hover {
-  color: #5CDC8F;
+  color: #5cdc8f;
 }
 h1 {
   font-size: 36px;
@@ -254,13 +254,13 @@ fieldset {
   width: 125px;
 }
 .button-green {
-  background: #3FCB77;
+  background: #3fcb77;
   font-weight: 700;
   -webkit-transition: all 0.1s ease;
           transition: all 0.1s ease;
 }
 .button-green:hover {
-  background: #5CDC8F;
+  background: #5cdc8f;
 }
 .icon:after {
   font-family: 'icomoon';
@@ -282,13 +282,49 @@ fieldset {
   overflow: hidden;
   padding: 20px;
 }
-.comments-area article {
+.comments-area .comment {
   border: 1px solid #000;
   border-radius: 2px;
-  padding: 20px;
+  padding: 20px 20px 0;
 }
-.comments-area .avatar {
+.comments-area .comment.interior {
+  border: 0;
+  border-top: 1px solid #000;
+  margin-left: 10px;
+}
+.comments-area .comment .comment-meta .comment-avatar {
+  float: left;
+  margin-right: 25px;
+}
+.comments-area .comment .comment-meta .comment-avatar img {
   border-radius: 100%;
+}
+.comments-area .comment .comment-meta .comment-author {
+  display: table-cell;
+  height: 48px;
+  vertical-align: middle;
+}
+.comments-area .comment .comment-meta .comment-author .comment-author-date {
+  color: #757575;
+  display: block;
+}
+.comments-area .comment .comment-content {
+  clear: both;
+  margin: 10px 0 20px;
+}
+.comments-area .comment .comment-content .comment-reply {
+  margin-top: 10px;
+}
+@media screen and (min-width: 767px) {
+  .comments-area .comment.interior {
+    margin-left: 48px;
+  }
+  .comments-area .comment .comment-author .comment-author-date {
+    display: inline-block;
+  }
+  .comments-area .comment .comment-content {
+    margin: 10px 0 20px 73px;
+  }
 }
 .header {
   position: relative;
@@ -309,15 +345,13 @@ fieldset {
   z-index: 2;
 }
 .header .site-title {
-  position: relative;
-  z-index: 2;
-}
-.header .site-title {
   font-family: 'Fredoka One';
   letter-spacing: 0.025em;
   font-size: 100px;
   margin: 25px 0;
+  position: relative;
   text-shadow: 3px 5px 0px #6D6D6D;
+  z-index: 2;
 }
 .header .site-title a {
   color: inherit;
@@ -377,7 +411,7 @@ form .form-message {
   padding: 5px;
 }
 form .form-message.error-message {
-  background: #C71813;
+  background: #c71813;
 }
 .sidebar {
   padding: 20px 0 0;
@@ -390,7 +424,7 @@ form .form-message.error-message {
   padding: 0 20px;
 }
 .sidebar ul {
-  background: #2C2D31;
+  background: #2c2d31;
   border-top: 1px solid #232020;
   list-style-type: none;
   margin: 0;
@@ -401,30 +435,30 @@ form .form-message.error-message {
           transition: all 0.1s ease;
 }
 .sidebar ul li.active {
-  background: #CD552B;
+  background: #cd552b;
 }
 .sidebar ul li a {
-  color: #D7D6DC;
+  color: #d7d6dc;
   display: block;
   padding: 20px 20px;
 }
 .sidebar ul li a:active,
 .sidebar ul li a:focus,
 .sidebar ul li a:hover {
-  color: #D7D6DC;
+  color: #d7d6dc;
   text-decoration: none;
 }
 .entry-categories .badge {
-  background: #3FCB77;
+  background: #3fcb77;
   color: #292933;
   text-decoration: none;
 }
 .entry-categories .badge:hover {
-  background: #5CDC8F;
+  background: #5cdc8f;
   color: #292933;
 }
 .entry-meta {
-  color: #7F8188;
+  color: #7f8188;
   display: inline-block;
   margin-bottom: 15px;
 }
@@ -438,11 +472,11 @@ form .form-message.error-message {
   text-decoration: underline;
 }
 .notification.error .card {
-  background: #C71813;
+  background: #c71813;
   box-shadow: 0px 0px 3px #555;
 }
 .notification.success .card {
-  background: #368D3D;
+  background: #368d3d;
   box-shadow: 0px 0px 3px #555;
 }
 .notification p {
@@ -464,7 +498,7 @@ form .form-message.error-message {
   position: relative;
 }
 .slidecard:before {
-  background: #CD552B;
+  background: #cd552b;
   content: '';
   display: block;
   position: absolute;

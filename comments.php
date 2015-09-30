@@ -39,7 +39,7 @@ get_currentuserinfo();
                 'logged_in_as' => '',
                 'class_submit' => 'button-green button-small',
                 'title_reply' => __( 'Comments' ),
-                'label_submit' => __( 'Submit' )
+                'label_submit' => __( 'Post' )
             ) );
             ?>
         </div>
@@ -49,15 +49,7 @@ get_currentuserinfo();
         <?php if ( have_comments() == false): ?>
             <p class="no-comments"><?php esc_html_e( 'No comments have been made.', 'wordflat' ); ?></p>
         <?php else: ?>
-            <div class="comments-area">
-                <?php
-                wp_list_comments( array(
-                    'avatar_size' => 64,
-                    'style' => 'div',
-                    'short_ping' => true
-                ) );
-                ?>
-            </div>
+            <?php wordflat_list_comments(); ?>
         <?php endif; ?>
     </div>
 </div>

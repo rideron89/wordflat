@@ -178,7 +178,7 @@ function wordflat_jetpack_setup() {
         'container' => 'main',
         'render'    => 'wordflat_infinite_scroll_render',
         'footer'    => 'page',
-    ) );
+        ) );
 } // end function wordflat_jetpack_setup
 add_action( 'after_setup_theme', 'wordflat_jetpack_setup' );
 

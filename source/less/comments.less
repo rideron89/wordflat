@@ -1,11 +1,63 @@
 .comments-area {
-    article {
+    .comment {
         border: 1px solid #000;
         border-radius: 2px;
-        padding: 20px;
+        padding: 20px 20px 0;
+
+        &.interior {
+            border: 0;
+            border-top: 1px solid #000;
+            margin-left: 10px;
+        }
+
+        .comment-meta {
+            .comment-avatar {
+                float: left;
+                margin-right: 25px;
+
+                img {
+                    border-radius: 100%;
+                }
+            }
+
+            .comment-author {
+                display: table-cell;
+                height: 48px;
+                vertical-align: middle;
+
+                .comment-author-date {
+                    color: #757575;
+                    display: block;
+                }
+            }
+        }
+
+        .comment-content {
+            clear: both;
+            margin: 10px 0 20px;
+
+            .comment-reply {
+                margin-top: 10px;
+            }
+        }
     }
 
-    .avatar {
-        border-radius: 100%;
+    @media screen and (min-width: 767px) {
+        .comment {
+
+            &.interior {
+                margin-left: 48px;
+            }
+
+            .comment-author {
+                .comment-author-date {
+                    display: inline-block;
+                }
+            }
+
+            .comment-content {
+                margin: 10px 0 20px 73px;
+            }
+        }
     }
 }
