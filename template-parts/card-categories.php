@@ -5,7 +5,7 @@
         <?php foreach (get_categories() as $category): ?>
             <?php if ($category->slug != 'uncategorized'): ?>
                 <li class="slidecard">
-                    <a href=""><?= $category->name ?></a>
+                    <a href="<?= get_category_link($category->cat_ID) ?>"><?= $category->name ?></a>
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>
